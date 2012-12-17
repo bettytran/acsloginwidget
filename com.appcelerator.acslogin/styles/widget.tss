@@ -1,0 +1,87 @@
+"#acsloginMain":{
+	backgroundColor: "transparent",
+	height: Ti.UI.SIZE
+},
+"#acsLogin": {
+	backgroundColor: "transparent",
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	layout: "vertical"
+},
+"#acsloginPass": {
+	backgroundColor: "transparent",
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	layout: "vertical",
+	opacity: 0
+},
+"#acsloginAccount": {
+	height: Ti.UI.SIZE,
+	width: Ti.UI.FILL,
+	backgroundColor: 'transparent',
+	layout: 'vertical',
+	opacity: 0
+},
+".acsLoginTxt":{
+	color: "#363636",
+	height: "32dp",
+	width: "80%",
+	backgroundColor: "transparent",
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	font: {fontSize: "14dp"},
+	bottom: 10
+},
+".acsLoginTxt[platform=android]":{
+	backgroundColor: "#fff",
+	borderRadius: 5
+},
+".acsLoginBtn": {
+	bottom: 10,
+	color: "#fff",
+	backgroundColor: "#ba3b56",
+	borderRadius: 5,
+	font: {fontSize: "14dp", fontWeight: "bold"},
+	backgroundImage: "/images/com.appcelerator.acslogin/button5.png",
+	height: "32dp",
+	width: "80%"
+},
+".acsloginBtn[platform=ios]": {
+	style: Titanium.UI.iPhone.SystemButtonStyle.PLAIN,
+},
+".acsloginLbl": {
+	bottom: 10,
+	color: "#fff",
+	font: {fontSize: "12dp"},
+	shadowOffset: 1,
+	shadowColor: "#363636"
+},
+".acsloginMsg": {
+	bottom: 10,
+	color: "#fff",
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: {fontSize: "14dp"},
+	shadowOffset: 1,
+	shadowColor: "#363636",
+	width: "80%"
+},
+"#usernameTxt": {
+	hintText: "Username"
+},
+"#passwordTxt": {
+	hintText: "Password",
+	passwordMask: true
+},
+"#emailTxt": {
+	hintText: "Email"
+},
+"#usernameNew": {
+	hintText: "Email"
+},
+"#passwordNew": {
+	hintText: "Password",
+	passwordMask: true
+},
+"#passwordConfirm": {
+	hintText: "Confirm Password",
+	passwordMask: true
+}
