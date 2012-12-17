@@ -71,6 +71,7 @@ function createClick(e){
 	Cloud.Users.create({
 		username: $.usernameNew.value,
 		password: $.passwordNew.value,
+		email: $.usernameNew.value,
 		password_confirmation: $.passwordConfirm.value
 	}, function(e){
 		if(e.success == 1){
