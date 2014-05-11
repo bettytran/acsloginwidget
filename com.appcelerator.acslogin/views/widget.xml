@@ -1,26 +1,27 @@
 <Alloy>
-	<View id="acsloginMain">
-		<View id="acsLogin">
-			<Label class="acsloginMsg" id="msgLbl"/>
-			<TextField class="acsLoginTxt" id="usernameTxt"/>
-			<TextField class="acsLoginTxt" id="passwordTxt"/>
-			<Button class="acsLoginBtn" id="loginBtn" onClick="loginClick">Login</Button>
-			<Label class="acsloginLbl" id="passwordLbl" onClick="forgotClick">Forgot your password?</Label>
-			<Button class="acsLoginBtn" id="accountBtn" onClick="createAccountClick">Create Account</Button>
-		</View>
-		<View id="acsloginPass">
-			<Label class="acsloginMsg" id="emailLbl"/>
-			<TextField class="acsLoginTxt" id="emailTxt"/>
-			<Button class="acsLoginBtn" id="emailBtn" onClick="remindClick">Remind Me!</Button>
-			<Label class="acsloginLbl" id="loginLbl" onClick="loginlinkClick">Login</Label>
-		</View>
-		<View id="acsloginAccount">
-			<Label class="acsloginMsg" id="accountLbl"/>
-			<TextField class="acsLoginTxt" id="usernameNew"/>
-			<TextField class="acsLoginTxt" id="passwordNew"/>
-			<TextField class="acsLoginTxt" id="passwordConfirm"/>
-			<Button class="acsLoginBtn" id="createBtn" onClick="createClick">Create Account</Button>
-			<Label class="acsloginLbl" id="loginLbl" onClick="loginlinkClick">Login</Label>
+	<View id="container">
+		<Label id="message"/>
+		<View id="content">
+			<View id="loginView" class="content">
+				<TextField class="user" id="loginUser"/>
+				<TextField class="pass" id="loginPass"/>
+				<Button class="submit" id="loginSubmit" onClick="login">Login</Button>
+				<Label class="link" onClick="showRemind">Forgot your password?</Label>
+				<Button class="submit" id="createLink" onClick="showCreate">Create Account</Button>
+			</View>
+			<View id="remindView" class="content">
+				<TextField class="email" id="remindEmail"/>
+				<Button class="submit" id="emailSubmit" onClick="remind">Remind Me!</Button>
+				<Label class="link" onClick="showLogin">Login</Label>
+			</View>
+			<View id="createView" class="content">
+				<TextField class="user" id="createUser"/>
+				<TextField class="email" id ="createEmail"/>
+				<TextField class="pass" id="createPass"/>
+				<TextField class="confirmPass" id="createConfirm"/>
+				<Button class="submit" id="createSubmit" onClick="create">Create Account</Button>
+				<Label class="link" onClick="showLogin">Login</Label>
+			</View>
 		</View>
 	</View>
 </Alloy> 

@@ -22,7 +22,7 @@ A login widget for Titanium Alloy that integrates with Appcelerator Cloud Servic
 
 ```
 "dependencies": {
-	"com.appcelerator.acslogin": "1.0"
+	"com.appcelerator.acslogin": "1.1"
 }
 ```
 
@@ -40,7 +40,7 @@ __views/index.xml__
 __controller/index.js__
 
 ```
-$.acslogin.init({loginCallback: function(e){//login success callback}});
+$.acslogin.init({callback: function(e){//login success callback}});
 ```
 
 

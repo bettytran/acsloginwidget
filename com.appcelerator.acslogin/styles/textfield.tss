@@ -1,9 +1,0 @@
-".acsLoginAccountTxt": {
-	color: "#363636",
-	height: "32dp",
-	width: "80%",
-	backgroundColor: "transparent",
-	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	font: {fontSize: "14dp"},
-	bottom: 10
-}

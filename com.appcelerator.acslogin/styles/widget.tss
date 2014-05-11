@@ -1,87 +1,71 @@
-"#acsloginMain":{
-	backgroundColor: "transparent",
-	height: Ti.UI.SIZE
-},
-"#acsLogin": {
+"View": {
 	backgroundColor: "transparent",
 	height: Ti.UI.SIZE,
-	width: Ti.UI.FILL,
-	layout: "vertical"
+	width: Ti.UI.Fill
 },
-"#acsloginPass": {
-	backgroundColor: "transparent",
-	height: Ti.UI.SIZE,
-	width: Ti.UI.FILL,
-	layout: "vertical",
-	opacity: 0
-},
-"#acsloginAccount": {
-	height: Ti.UI.SIZE,
-	width: Ti.UI.FILL,
-	backgroundColor: 'transparent',
-	layout: 'vertical',
-	opacity: 0
-},
-".acsLoginTxt":{
+"TextField": {
 	color: "#363636",
 	height: "32dp",
 	width: "80%",
 	backgroundColor: "transparent",
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	font: {fontSize: "14dp"},
-	bottom: 10
+	bottom: "10dp"
 },
-".acsLoginTxt[platform=android]":{
-	backgroundColor: "#fff",
-	borderRadius: 5
-},
-".acsLoginBtn": {
-	bottom: 10,
+"Label": {
 	color: "#fff",
-	backgroundColor: "#ba3b56",
-	borderRadius: 5,
-	font: {fontSize: "14dp", fontWeight: "bold"},
-	backgroundImage: "/images/com.appcelerator.acslogin/button5.png",
-	height: "32dp",
-	width: "80%"
-},
-".acsloginBtn[platform=ios]": {
-	style: Titanium.UI.iPhone.SystemButtonStyle.PLAIN,
-},
-".acsloginLbl": {
-	bottom: 10,
-	color: "#fff",
-	font: {fontSize: "12dp"},
 	shadowOffset: 1,
 	shadowColor: "#363636"
 },
-".acsloginMsg": {
-	bottom: 10,
+"TextField[platform=android]": {
+	borderRadius: "5dp",
+	backgroundColor: "#fff"
+},
+".content": {
+	layout: "vertical",
+	opacity: 0
+},
+".link": {
+	font: {fontSize: "12dp"},
+	bottom: "10dp"
+},
+".submit": {
+	bottom: "10dp",
 	color: "#fff",
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font: {fontSize: "14dp"},
-	shadowOffset: 1,
-	shadowColor: "#363636",
+	backgroundColor: "#ba3b56",
+	borderRadius: "5dp",
+	font: {fontSize: "14dp", fontWeight: "bold"},
+	backgroundImage: "/images/com.appcelerator.acslogin/button.png",
+	height: "32dp",
 	width: "80%"
 },
-"#usernameTxt": {
+".submit[platform=ios]": {
+	style: Titanium.UI.iPhone.SystemButtonStyle.PLAIN
+},
+".user": {
 	hintText: "Username"
 },
-"#passwordTxt": {
+".email": {
+	hintText: "Email"
+},
+".pass": {
 	hintText: "Password",
 	passwordMask: true
 },
-"#emailTxt": {
-	hintText: "Email"
-},
-"#usernameNew": {
-	hintText: "Email"
-},
-"#passwordNew": {
-	hintText: "Password",
-	passwordMask: true
-},
-"#passwordConfirm": {
+".confirmPass": {
 	hintText: "Confirm Password",
 	passwordMask: true
+},
+"#message": {
+	width: "80%",
+	height: Ti.UI.SIZE,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: {fontSize: "14dp"},
+	bottom: "10dp"
+},
+"#loginView": {
+	opacity: 100
+},
+"#container": {
+	layout: "vertical"
 }

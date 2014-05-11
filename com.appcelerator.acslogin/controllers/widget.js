@@ -1,106 +1,88 @@
 var Cloud = require('ti.cloud');
 var animation = require('alloy/animation');
 
-var settings = {
-	loginCallback: null,
- 	createCallback: null
-}
+var settings = {};
 
-function loginClick(e) {
+$.init = function(args) {
+	settings.callback = args.callback;
+};
+
+//Performs ACS login
+var login = function() {
 	Cloud.Users.login({
-		login : $.usernameTxt.value,
-		password : $.passwordTxt.value
-	}, function(e) {
-		if(e.success == 1){
-			settings.loginCallback();
+		login : $.loginUser.value,
+		password : $.loginPass.value
+	}, function(evt) {
+		if (evt.success) {
+			settings.callback();
 		} else {
-			$.msgLbl.text = e.message;
+			$.message.text = evt.message;
 		}
-		
 	});
-}
+};
 
-
-
-
-function forgotClick(e) {
-	resetLoginForm();
-	animation.fadeOut($.acsLogin, 200);
-	animation.fadeIn($.acsloginPass, 500);
-}
-
-function remindClick(e) {
+//Sends out the password reset email
+var remind = function() {
 	Cloud.Users.requestResetPassword({
-		email : $.emailTxt.value
-	}, function(e) {
-		if(e.success == 1){
-			$.emailLbl.text = 'Password reminder sent';
-			animation.fadeOut($.acsloginPass, 200);
-			animation.fadeIn($.acsLogin, 500);
+		email : $.remindEmail.value
+	}, function(evt) {
+		if (evt.success) {
+			$.message.text = 'Password reminder sent';
+			showLogin();
 		} else {
-			$.emailLbl.text = 'Error: ' + e.message;
+			$.message.text = 'Error: ' + evt.message;
 		}
-		
+
 	});
-}
+};
 
-
-
-function loginlinkClick(e) {
-	animation.fadeOut($.acsloginAccount, 200);
-	animation.fadeOut($.acsloginPass, 200);
-	animation.fadeIn($.acsLogin, 500);
-	$.emailLbl.text = '';
-	resetAccountForm();
-	resetEmailForm();
-}
-
-function createAccountClick(e){
-	resetLoginForm();
-	animation.fadeOut($.acsLogin, 200);
-	animation.fadeIn($.acsloginAccount, 500);
-	
-	
-	//Todo: Customise account creation fields.
-	// var textfield = Alloy.createWidget('com.appcelerator.acslogin', 'textfield').getView('acsLoginAccountTxt');
-	 //$.acsloginAccount.add(textfield);
-	
-}
-
-function createClick(e){
+//Create a new account
+var create = function() {
 	Cloud.Users.create({
-		username: $.usernameNew.value,
-		password: $.passwordNew.value,
-		email: $.usernameNew.value,
-		password_confirmation: $.passwordConfirm.value
-	}, function(e){
-		if(e.success == 1){
-			$.accountLbl.text = "Account Created!";
+		username : $.createUser.value,
+		email : $.createEmail.value,
+		password : $.createPass.value,
+		password_confirmation : $.createConfirm.value
+	}, function(evt) {
+		if (evt.success) {
+			$.message.text = "Account created!";
 		} else {
-			$.accountLbl.text = 'Error: ' + e.message;
+			$.message.text = 'Error: ' + evt.message;
 		}
 	});
-}
+};
+
+var showLogin = function() {
+	animation.fadeOut($.remindView, 200);
+	animation.fadeOut($.createView, 200);
+	animation.fadeIn($.loginView, 500);
+	
+	reset();
+};
+
+var showCreate = function() {
+	animation.fadeOut($.loginView, 200);
+	animation.fadeIn($.createView, 500);
+	
+	reset();
+};
+
+var showRemind = function() {
+	animation.fadeOut($.loginView, 200);
+	animation.fadeIn($.remindView, 500);
+	
+	reset();
+};
+
+var reset = function() {
+	$.message.text = '';
+	$.loginUser.value = '';
+	$.loginPass.value = '';
+	$.remindEmail.value = '';
+	$.createUser.value = '';
+	$.createEmail.value = '';
+	$.createPass.value = '';
+	$.createConfirm.value = '';
+};
 
 
-function resetEmailForm(){
-	$.emailLbl.text = '';
-	$.emailTxt.value = '';
-}
-
-function resetAccountForm(){
-	$.accountLbl.text = '';
-	$.usernameNew.value = '';
-	$.passwordNew.value = '';
-	$.passwordConfirm.value = '';
-}
-
-function resetLoginForm(){
-	$.msgLbl.text = '';
-	$.usernameTxt.value = '';
-	$.passwordTxt.value = '';
-}
-
-exports.init = function(params) {
-	settings.loginCallback = params.loginCallback;
-}
